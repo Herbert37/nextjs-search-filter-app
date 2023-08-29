@@ -23,8 +23,12 @@ export default function SearchForm() {
     dispatch(onChangeSearch(event.target.value));
   };
 
+  const removeLeadingSpaces = (searchValue) => {
+    return searchValue.replace(/^\s+/, '');
+  };
+
   const searchUsersHandler = () => {
-    router.push(`/item?search=${searchValue}`);
+    router.push(`/item?search=${removeLeadingSpaces(searchValue)}`);
   };
 
   return (
@@ -44,7 +48,7 @@ export default function SearchForm() {
             onChange={(event) => onChangeText(event)}
             value={searchValue}
             variant='filled'
-            label='Type here'
+            label='Type name or email'
             color='secondary'
           />
         </Grid>
@@ -54,7 +58,7 @@ export default function SearchForm() {
             aria-label='search'
             size='large'
             color='secondary'
-            disabled={ searchValue == '' }
+            disabled={ searchValue == '' || searchValue.trim().length == 0 }
           >
             <SearchIcon />
           </IconButton>

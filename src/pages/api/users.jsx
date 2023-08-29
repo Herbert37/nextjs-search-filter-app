@@ -8,7 +8,7 @@ export default async function handler(req, res) {debugger;
     } = req;debugger;
     const response = await axios.get(USERS_API_URL);
     const searchResults = response.data.filter((item) =>
-      item.name.toLowerCase().includes(search.toLowerCase()),
+      item.name.toLowerCase().includes(search.toLowerCase()) || item.email.toLowerCase().includes(search.toLowerCase()),
     );
     res.status(200).json(searchResults.splice(0, 4));
   } catch (error) {
