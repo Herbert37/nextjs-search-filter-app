@@ -1,9 +1,24 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUserDetail } from '@/src/store/search';
 
 export default function ItemsPage() {
-  const { query } = useRouter()
-  const id = query.slug
-  return <h1>item detail {id}</h1>
+  const { userDetail, isLoading } = useSelector((state) => ({
+    isLoading: state.search.isLoadingUserDetail,
+    userDetail: state.search.userDetail,
+  }));
+  const dispatch = useDispatch();
+  const { query } = useRouter();
+  const id = query.slug;
+
+  const onGetUserDetail = () => {
+    dispatch(fetchUserDetail(id));
+  };
+
+  useEffect(() => {
+    onGetUserDetail();
+  }, []);
+  if (isLoading) return <h1>...Loading</h1>;
+  return <h1>item detail {userDetail?.name}</h1>;
 }
