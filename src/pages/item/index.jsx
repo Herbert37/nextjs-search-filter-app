@@ -47,7 +47,7 @@ export default function Item() {
         <Grid item xs={12} spacing={2}>
           <br></br>
           <Typography variant='h4' color={'text.primary'} gutterBottom>
-            Search Results for '{search}'
+          `Search Results for "${search}"`
           </Typography>
         </Grid>
         <Grid item xs={12} spacing={2}>
@@ -63,7 +63,7 @@ export default function Item() {
             <Card>
               <CardContent>
                 <Typography variant='h5' component='div'>
-                  No information found for '{search}'
+                `No information found for "${search}"`
                 </Typography>
               </CardContent>
             </Card>
