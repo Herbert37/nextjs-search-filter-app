@@ -1,34 +1,30 @@
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { onChangeSearch } from 'src/store/search';
+import { UserCard } from 'src/components/UserCard';
 
 export default function SearchForm() {
   const { searchValue, usersResponse } = useSelector((state) => ({
     searchValue: state.search.searchValue,
     usersResponse: state.search.usersResponse,
   }));
-  const [usersFiltered, setUsersFiltered] = useState([]);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const onChangeText = (event) => {
     dispatch(onChangeSearch(event.target.value));
   };
 
-  const searchUsersHandler = (query) => {
-    query = query.toLowerCase();
-
-    return usersResponse.filter((user) => {
-      const name = user.name.toLowerCase();
-      const email = user.email.toLowerCase();
-
-      return name.includes(query) || email.includes(query);
-    });
+  const searchUsersHandler = () => {
+    router.push(`/item?search=${searchValue}`);
   };
 
   return (
     <section>
       <h1>Search an user</h1>
       <input type="text" onChange={(event) => onChangeText(event)} value={searchValue} />
-      <button onClick={searchUsersHandler(searchValue)}>Search</button>
+      <button onClick={searchUsersHandler}>Search</button>
     </section>
   );
 }
