@@ -44,7 +44,7 @@ const search = createSlice({
 		[fetchItems.fulfilled.type]: (state, action) => {
 			state.isLoading = false;
 			state.isError = false;
-			state.itemsResponse = action.payload.data.items;
+			state.itemsResponse = action.payload.data;
 		},
 		[fetchItems.rejected.type]: (state) => {
 			state.isLoading = false;

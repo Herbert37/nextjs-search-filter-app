@@ -1,1 +1,1 @@
-export const ITEMS_API_URL = 'https://private-360077-herbert37.apiary-mock.com/api/items.json';
+export const ITEMS_API_URL = 'https://jsonplaceholder.typicode.com/users';
