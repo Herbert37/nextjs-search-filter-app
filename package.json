@@ -19,7 +19,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux": "^4.0.1"
   }
 }
