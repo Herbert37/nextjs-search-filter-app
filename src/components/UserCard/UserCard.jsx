@@ -11,16 +11,16 @@ export const UserCard = ({ id, name, email }) => {
     <Grid item xs={12} md={6} spacing={2}>
       <Card>
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
             {email.toLowerCase()}
           </Typography>
-          <Typography variant="h5" component="div">
+          <Typography variant='h5' component='div'>
             {name}
           </Typography>
         </CardContent>
         <CardActions>
           <Link href={`/items/${id}`}>
-            <Button size="small" color="secondary">
+            <Button size='small' color='secondary'>
               SEE DETAIL
             </Button>
           </Link>

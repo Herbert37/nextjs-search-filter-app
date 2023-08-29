@@ -30,16 +30,16 @@ export default function ItemsPage() {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <Container maxWidth="md">
+    <Container maxWidth='md'>
       <Grid container spacing={2}>
         <Grid item xs={12} spacing={2}>
           <br></br>
-          <Typography variant="h4" color={'text.primary'} gutterBottom>
+          <Typography variant='h4' color={'text.primary'} gutterBottom>
             User detail
           </Typography>
           <Grid item xs={12} spacing={2}>
             <Link href={'/'}>
-              <IconButton aria-label="search" size="large" color="secondary">
+              <IconButton aria-label='search' size='large' color='secondary'>
                 <ArrowBackIcon />
               </IconButton>
             </Link>
@@ -48,33 +48,33 @@ export default function ItemsPage() {
             <br></br>
             <Card>
               <CardContent>
-                <Typography variant="h5" component="div">
+                <Typography variant='h5' component='div'>
                   {userDetail?.name}
                 </Typography>
                 <br></br>
                 <Grid container>
                   <Grid item xs={12} md={6} spacing={2}>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} color='text.secondary'>
                       <b>Username:</b> {userDetail?.username}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={6} spacing={2}>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} color='text.secondary'>
                       <b>City:</b> {userDetail?.address?.city}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={6} spacing={2}>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} color='text.secondary'>
                       <b>Email:</b> {userDetail?.email.toLowerCase()}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={6} spacing={2}>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} color='text.secondary'>
                       <b>Company:</b> {userDetail?.company?.name}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={6} spacing={2}>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} color='text.secondary'>
                       <b>Location:</b> {userDetail?.address?.geo?.lat},{' '}
                       {userDetail?.address?.geo?.lng}
                     </Typography>

@@ -42,17 +42,17 @@ export default function Item() {
 
   if (isLoading) return <Loader />;
   return (
-    <Container maxWidth="md">
+    <Container maxWidth='md'>
       <Grid container spacing={2}>
         <Grid item xs={12} spacing={2}>
           <br></br>
-          <Typography variant="h4" color={'text.primary'} gutterBottom>
-            Search Results for "{search}"
+          <Typography variant='h4' color={'text.primary'} gutterBottom>
+            Search Results for '{search}'
           </Typography>
         </Grid>
         <Grid item xs={12} spacing={2}>
           <Link href={'/'}>
-            <IconButton aria-label="search" size="large" color="secondary">
+            <IconButton aria-label='search' size='large' color='secondary'>
               <ArrowBackIcon />
             </IconButton>
           </Link>
@@ -62,8 +62,8 @@ export default function Item() {
           <Grid item xs={12} spacing={2}>
             <Card>
               <CardContent>
-                <Typography variant="h5" component="div">
-                  No information found for "{search}"
+                <Typography variant='h5' component='div'>
+                  No information found for '{search}'
                 </Typography>
               </CardContent>
             </Card>

@@ -28,32 +28,32 @@ export default function SearchForm() {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth='md'>
       <Grid container spacing={2}>
         <Grid item xs={12} spacing={2}>
           <br></br>
-          <Typography variant="h4" color={'text.primary'} gutterBottom>
+          <Typography variant='h4' color={'text.primary'} gutterBottom>
             Search an user
           </Typography>
         </Grid>
         <Grid item xs={10} md={11} spacing={2}>
           <TextField
             fullWidth
-            size="small"
-            type="text"
+            size='small'
+            type='text'
             onChange={(event) => onChangeText(event)}
             value={searchValue}
-            variant="filled"
-            label="Type here"
-            color="secondary"
+            variant='filled'
+            label='Type here'
+            color='secondary'
           />
         </Grid>
         <Grid item xs={2} md={1} spacing={2}>
           <IconButton
             onClick={searchUsersHandler}
-            aria-label="search"
-            size="large"
-            color="secondary"
+            aria-label='search'
+            size='large'
+            color='secondary'
           >
             <SearchIcon />
           </IconButton>
