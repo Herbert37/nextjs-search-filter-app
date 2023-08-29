@@ -20,5 +20,5 @@ export default function ItemsPage() {
     onGetUserDetail();
   }, []);
   if (isLoading) return <h1>...Loading</h1>;
-  return <h1>item detail {userDetail?.name}</h1>;
+  return <h1>user detail {userDetail?.name}</h1>;
 }
