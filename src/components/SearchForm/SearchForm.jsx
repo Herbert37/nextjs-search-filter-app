@@ -54,6 +54,7 @@ export default function SearchForm() {
             aria-label='search'
             size='large'
             color='secondary'
+            disabled={ searchValue == '' }
           >
             <SearchIcon />
           </IconButton>
