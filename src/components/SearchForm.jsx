@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { onChangeSearch } from 'src/store/search';
 import { UserCard } from 'src/components/UserCard';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import { Suspense } from 'react';
+import Loader from './Loader/Loader';
 
 export default function SearchForm() {
   const { searchValue, usersResponse } = useSelector((state) => ({
@@ -21,13 +28,40 @@ export default function SearchForm() {
   };
 
   return (
-    <section>
-      <h1>Search an user</h1>
-      <input type="text" onChange={(event) => onChangeText(event)} value={searchValue} />
-      <button onClick={searchUsersHandler}>Search</button>
-      {usersResponse.map((user, index) => (
-        <UserCard key={index} {...user} />
-      ))}
-    </section>
+    <Container maxWidth="md">
+      <Grid container spacing={2}>
+        <Grid item xs={12} spacing={2}>
+          <br></br>
+          <Typography variant="h4" color={'text.primary'} gutterBottom>
+            Search an user
+          </Typography>
+        </Grid>
+        <Grid item xs={10} md={11} spacing={2}>
+          <TextField
+            fullWidth
+            size="small"
+            type="text"
+            onChange={(event) => onChangeText(event)}
+            value={searchValue}
+            variant="filled"
+          />
+        </Grid>
+        <Grid item xs={2} md={1} spacing={2}>
+          <IconButton
+            onClick={searchUsersHandler}
+            aria-label="search"
+            size="large"
+            color="secondary"
+          >
+            <SearchIcon />
+          </IconButton>
+        </Grid>
+        <Suspense fallback={<Loader />}>
+          {usersResponse.map((user, index) => (
+            <UserCard key={index} {...user} />
+          ))}
+        </Suspense>
+      </Grid>
+    </Container>
   );
 }
