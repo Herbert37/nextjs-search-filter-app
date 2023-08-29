@@ -1,6 +1,7 @@
 import React, { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from 'src/store/search';
+import Navigation from 'src/components/Navigation';
 const SearchForm = lazy(() => import('src/components/SearchForm'));
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>HOME</h1>
+      <Navigation />
       <SearchForm />
     </>
   );

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export const UserCard = ({ name, email, id }) => {
   return (
@@ -7,5 +7,5 @@ export const UserCard = ({ name, email, id }) => {
       <h1>{email}</h1>
       <Link href={`/items/${id}`}>Detail</Link>
     </div>
-  )
-}
+  );
+};

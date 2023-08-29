@@ -25,6 +25,9 @@ export default function SearchForm() {
       <h1>Search an user</h1>
       <input type="text" onChange={(event) => onChangeText(event)} value={searchValue} />
       <button onClick={searchUsersHandler}>Search</button>
+      {usersResponse.map((user, index) => (
+        <UserCard key={index} {...user} />
+      ))}
     </section>
   );
 }
