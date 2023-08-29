@@ -1,7 +1,7 @@
 import React, { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from 'src/store/search';
-const SearchForm = lazy(() => import('src/components/SearchForm'));
+const SearchForm = lazy(() => import('src/components/SearchForm/SearchForm'));
 
 export default function Home() {
   const dispatch = useDispatch();

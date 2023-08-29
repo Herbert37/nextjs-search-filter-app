@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { onChangeSearch } from 'src/store/search';
-import { UserCard } from 'src/components/UserCard';
+import { UserCard } from 'src/components/UserCard/UserCard';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { Suspense } from 'react';
-import Loader from './Loader/Loader';
+import Loader from 'src/components/Loader/Loader';
 
 export default function SearchForm() {
   const { searchValue, usersResponse } = useSelector((state) => ({
@@ -44,6 +44,8 @@ export default function SearchForm() {
             onChange={(event) => onChangeText(event)}
             value={searchValue}
             variant="filled"
+            label="Type here"
+            color="secondary"
           />
         </Grid>
         <Grid item xs={2} md={1} spacing={2}>
