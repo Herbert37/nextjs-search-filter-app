@@ -15,7 +15,7 @@ import Loader from '@/src/components/Loader/Loader';
 export default function Item() {
   const router = useRouter();
   const { search } = router.query;
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(null);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,6 +24,7 @@ export default function Item() {
       if (search) {
         try {
           const response = await axios.get(`/api/users?search=${search}`);
+          setSearchResults([]);
           setSearchResults(response.data);
           response.data.length ? setShowResults(true) : setShowResults(false);
           setIsLoading(false);
@@ -58,7 +59,7 @@ export default function Item() {
           </Link>
         </Grid>
         {showResults && searchResults.map((user, index) => <UserCard key={index} {...user} />)}
-        {!showResults && (
+        {!showResults && searchResults != null && (
           <Grid item xs={12} spacing={2}>
             <Card>
               <CardContent>
