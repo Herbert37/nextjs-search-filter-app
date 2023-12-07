@@ -15,6 +15,16 @@ export default function Home() {
 
   return (
     <>
+      <Header
+        backgroundImage={
+          'https://d296xu67oj0g2g.cloudfront.net/lm_cms/images/CMS/DEALS/0923BOSI/RLB_BOSIMILLASADICIONALES.png'
+        }
+        title={'Searh an user'}
+        subtitle={'Lorem ipsum dolor, sit amet consectetur'}
+        description={
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum eius quasi ducimus eos, debitis sunt temporibus'
+        }
+      />
       <SearchForm />
     </>
   );

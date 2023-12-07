@@ -34,13 +34,8 @@ export default function SearchForm() {
   return (
     <Container maxWidth='md'>
       <Grid container spacing={2}>
-        <Grid item xs={12} spacing={2}>
-          <br></br>
-          <Typography variant='h4' color={'text.primary'} gutterBottom>
-            Search an user
-          </Typography>
-        </Grid>
         <Grid item xs={10} md={11} spacing={2}>
+          <br></br>
           <TextField
             fullWidth
             size='small'
@@ -53,12 +48,13 @@ export default function SearchForm() {
           />
         </Grid>
         <Grid item xs={2} md={1} spacing={2}>
+          <br></br>
           <IconButton
             onClick={searchUsersHandler}
             aria-label='search'
             size='large'
             color='secondary'
-            disabled={ searchValue == '' || searchValue.trim().length == 0 }
+            disabled={searchValue == '' || searchValue.trim().length == 0}
           >
             <SearchIcon />
           </IconButton>
