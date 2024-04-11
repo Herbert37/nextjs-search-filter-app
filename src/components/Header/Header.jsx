@@ -9,14 +9,15 @@ export default function Header({ backgroundImage, title, subtitle, description }
       sx={{
         position: 'relative',
         lineHeight: '0rem',
+        marginTop: '-4rem'
       }}
     >
       <Box
         component="img"
         sx={{
-          height: { xs: 300, md: 300 },
+          height: { xs: 600, md: 400 },
           width: '100%',
-          maxHeight: { xs: 300, md: 300 },
+          maxHeight: { xs: 600, md: 400 },
           maxWidth: '100%',
           objectFit: 'cover',
         }}
@@ -32,7 +33,7 @@ export default function Header({ backgroundImage, title, subtitle, description }
               paddingBottom: '2rem',
             }}
           >
-            <Grid item xs={12} spacing={2}>
+            <Grid item xs={12}>
               <Typography variant="h2" color={'text.primary'} gutterBottom>
                 {title}
               </Typography>
