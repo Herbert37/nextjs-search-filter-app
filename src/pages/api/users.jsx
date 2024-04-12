@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { USERS_API_URL } from 'src/environment';
 
-export default async function handler(req, res) {debugger;
+export default async function handler(req, res) {
   try {
     const {
       query: { search },
-    } = req;debugger;
+    } = req;
     const response = await axios.get(USERS_API_URL);
     const searchResults = response.data.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase()) || item.email.toLowerCase().includes(search.toLowerCase()),

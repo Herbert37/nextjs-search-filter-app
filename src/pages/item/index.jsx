@@ -11,6 +11,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Loader from '@/src/components/Loader/Loader';
+import ModalInfo from '@/src/components/ModalInfo/ModalInfo';
 
 export default function Item() {
   const router = useRouter();
@@ -18,6 +19,13 @@ export default function Item() {
   const [searchResults, setSearchResults] = useState(null);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState({ type: '', title: '', description: '', buttonText: '' });
+
+  const closeModalHandler = () => {
+    setShowModal(false);
+    router.push('/');
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +34,17 @@ export default function Item() {
           const response = await axios.get(`/api/users?search=${search}`);
           setSearchResults([]);
           setSearchResults(response.data);
-          response.data.length ? setShowResults(true) : setShowResults(false);
+          if(response.data.length){
+            setShowResults(true);
+          } else{
+            setModalInfo({
+              type: 'error',
+              title: 'Ups!',
+              description: `No information found for: ${search}`,
+              buttonText: 'New search'
+            })
+            setShowModal(true);
+          }
           setIsLoading(false);
         } catch (error) {
           console.log({ error });
@@ -59,16 +77,8 @@ export default function Item() {
           </Link>
         </Grid>
         {showResults && searchResults.map((user, index) => <UserCard key={index} {...user} />)}
-        {!showResults && searchResults != null && (
-          <Grid item xs={12} spacing={2}>
-            <Card>
-              <CardContent>
-                <Typography variant='h5' component='div'>
-                No information found for: {search}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+        {showModal && searchResults != null && (
+          <ModalInfo modalInfo={modalInfo} showModal={showModal} closeModalHandler={closeModalHandler} />
         )}
       </Grid>
     </Container>
